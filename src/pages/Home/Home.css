@@ -1,0 +1,45 @@
+li {
+    list-style: none;
+    text-align: left;
+}
+#input_container{
+    display: flex;
+    justify-content: center;
+}
+
+#home_input{
+    width: 100vh;
+    height: 10vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2vh;
+    border-image-slice: 10;
+    border-width: 5px;
+    border-image-source: linear-gradient(to left, #ffee00, #ff00a2);
+    background-color: #000;
+    color: #fff;
+    outline: none;
+    animation: borders 2s linear 2s infinite alternate;
+}
+
+#home_input::placeholder {
+    color: #fff;
+}
+#home_input:focus::placeholder {
+    color: transparent;
+  }
+
+#home_input::selection {
+    color: rgb(255, 0, 255);
+    text-decoration: none !important;
+}
+
+@keyframes borders {
+    from {
+        border-image-source: linear-gradient(to left, #ffee00, #ff00a2);
+    }
+
+    to {
+        border-image-source: linear-gradient(to right, #00ffee, #0dff00);
+    }
+}
