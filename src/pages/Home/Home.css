@@ -2,17 +2,18 @@ li {
     list-style: none;
     text-align: left;
 }
-#input_container{
+
+#input_container {
     display: flex;
     justify-content: center;
 }
 
-#home_input{
-    width: 100vh;
+#home_input {
+    width: 100rem;
     height: 10vh;
     text-align: center;
     font-weight: bold;
-    font-size: 2vh;
+    font-size: 5vh;
     border-image-slice: 10;
     border-width: 5px;
     border-image-source: linear-gradient(to left, #ffee00, #ff00a2);
@@ -24,10 +25,12 @@ li {
 
 #home_input::placeholder {
     color: #fff;
+    letter-spacing: 0.9rem;
 }
+
 #home_input:focus::placeholder {
     color: transparent;
-  }
+}
 
 #home_input::selection {
     color: rgb(255, 0, 255);
@@ -42,4 +45,13 @@ li {
     to {
         border-image-source: linear-gradient(to right, #00ffee, #0dff00);
     }
+}
+
+@media screen and (max-width: 550px) {
+
+    #home_input {
+        width: 50rem;
+        height: 15vh;
+    }
+
 }

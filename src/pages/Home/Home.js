@@ -18,8 +18,6 @@ export const Home = () => {
         setPath(`/search/${keyword}`)
     }
 
-    console.log(gifs)
-
     const handleChange = (e) => { setKeyword(e.target.value) }
 
     if (loading) return <Spinner />
@@ -32,7 +30,6 @@ export const Home = () => {
                     <input id='home_input' type='text' placeholder="GIF..." onChange={handleChange} autoComplete="off"></input>
                 </form>
             </header>
-            <h1>Gifs</h1>
             <div className="App-wrapper">
                 <div className="App-main">
                     <div className="App-results">

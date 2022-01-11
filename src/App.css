@@ -45,11 +45,13 @@
 }
 
 .App-results {
+  margin-top: 20px;
   flex-shrink: 2;
   width: 100%;
 }
 
 .App-category {
+  margin-top: 20px;
   margin-bottom: 25px;
   width: 100%;
 }
