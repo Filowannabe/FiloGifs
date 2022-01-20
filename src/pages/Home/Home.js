@@ -1,34 +1,33 @@
-import React, { useState } from "react";
+import React, { useCallback } from "react";
+import Helmet from "react-helmet";
 import { useLocation } from "wouter";
 
 import { ListOfGifs } from "../../components/ListOfGif/listOfGifs";
+import SearchForm from "../../components/SearchForm";
 import { Spinner } from "../../components/Spinner/Spinner";
 import { LazyTrending } from "../../components/treandingSearches";
 import { useGifs } from "../../hooks/useGifs";
+
 import './Home.css'
 
 export const Home = () => {
-    const [keyword, setKeyword] = useState('')
+
     const [path, setPath] = useLocation()
     const { loading, gifs } = useGifs()
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(path)
+    const handleSubmit = useCallback(({ keyword }) => {
         setPath(`/search/${keyword}`)
-    }
-
-    const handleChange = (e) => { setKeyword(e.target.value) }
+    }, [setPath])
 
     if (loading) return <Spinner />
 
     return (
         <>
-
+        <Helmet>
+            <title>Home</title>
+        </Helmet>
             <header className="o-header">
-                <form id='input_container' onSubmit={handleSubmit}>
-                    <input id='home_input' type='text' placeholder="GIF..." onChange={handleChange} autoComplete="off"></input>
-                </form>
+                <SearchForm onSubmit={handleSubmit} />
             </header>
             <div className="App-wrapper">
                 <div className="App-main">

@@ -15,7 +15,7 @@
 
 .App-title {
   color: var(--theme-body-txt);
-  margin-top: 0.6rem;
+  margin-top: 3rem;
 }
 
 .App-content {
@@ -51,7 +51,7 @@
 }
 
 .App-category {
-  margin-top: 20px;
+  margin-top: 3rem;
   margin-bottom: 25px;
   width: 100%;
 }
@@ -62,7 +62,6 @@
   }
 
   .App-category{
-    position: sticky;
     top: var(--search-size-mx-h);
     width: 40%;
     max-width: 300px;

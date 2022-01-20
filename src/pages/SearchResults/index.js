@@ -6,7 +6,7 @@ import { useNearScreen } from "../../hooks/useNearScreen";
 import debounce from "just-debounce-it";
 
 import './styles.css'
-
+import Helmet from "react-helmet";
 
 export const SearchResults = ({ params }) => {
 
@@ -20,19 +20,29 @@ export const SearchResults = ({ params }) => {
         once: false
     })
 
+    const title = gifs ? `${gifs.length} Resultados de ${keyword}` : ''
+
+
     const debounceHandleNextPage = useCallback(debounce(
         () => setPage(prevPage => prevPage + 1), 200
     ), [])
 
     useEffect(() => {
-        console.log(show)
         if (show) debounceHandleNextPage()
     }, [debounceHandleNextPage, show])
 
     return <>
         {loading
-            ? <Spinner />
-            : <><ListOfGifs gifs={gifs} />
+            ? (<Spinner />)
+            : <>
+                <Helmet>
+                    <title>{title}</title>
+                    <meta
+                        name="description"
+                        content={title}
+                    />
+                </Helmet>
+                <ListOfGifs gifs={gifs} />
                 <div ref={externalRef} id='visor'></div>
             </>
         }

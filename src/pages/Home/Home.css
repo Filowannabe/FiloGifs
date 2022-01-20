@@ -19,7 +19,7 @@ li {
     border-image-source: linear-gradient(to left, #ffee00, #ff00a2);
     background-color: #000;
     color: #fff;
-    outline: none;
+    outline: none;    
     animation: borders 2s linear 2s infinite alternate;
 }
 
